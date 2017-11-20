@@ -1,0 +1,7 @@
+{
+  "s3Prefix": "mycharts/image-",
+  "chartWidth": 480,
+  "chartHeight": 320,
+  "expireTime": 604800,
+  "chartJsOptions": "{'type':'line','data':{'labels':['A','B','C','D','E'],'datasets':[{'label':'Product Demand','data':[10,19,15,23,18],'backgroundColor':'tomato','pointRadius':0}]},'options':{}}"
+}

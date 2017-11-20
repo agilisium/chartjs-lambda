@@ -1,0 +1,48 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: "AWS::Serverless-2016-10-31"
+Description: "An AWS Lambda function to programmatically generate and render a chart.  See ChartJS and ChartJS-Node."
+
+Parameters:
+  LambdaCodeBucketName:
+    Type: String
+  LambdaCodeKey:
+    Type: String
+
+Resources:
+  chartjslambdaImageBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+            - "*"
+            AllowedMethods:
+            - GET
+            AllowedOrigins:
+            - "*"
+            MaxAge: 3000
+
+  chartjslambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: chartjs-lambda.getChart
+      Runtime: nodejs6.10
+      CodeUri:
+        Bucket: !Ref LambdaCodeBucketName
+        Key: !Ref LambdaCodeKey
+      Description: "An AWS Lambda function to programmatically generate and render a chart.  See ChartJS and ChartJS-Node."
+      MemorySize: 512
+      Timeout: 10
+      Policies:
+        - AWSLambdaBasicExecutionRole            #Managed policy
+
+        - Version: '2012-10-17'                  #Policy Document
+          Statement:
+            - Effect: Allow
+              Action:
+                - s3:GetObject
+                - s3:PutObject
+              Resource: !Sub arn:aws:s3:::${chartjslambdaImageBucket}/*
+      Environment:
+        Variables:
+          S3_BUCKET: !Ref chartjslambdaImageBucket
