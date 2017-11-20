@@ -24,7 +24,7 @@ This package has been built for general compatibility with Chartjs 2.6, Amazon L
 
 ### Deploying
 
-This package is designed to be deployed to AWS Lambda using the AWS Lambda [Serverless Application Model (SAM) framework](https://github.com/awslabs/serverless-application-model).  Once you've pulled down a copy of this package (available as a zip file), upload this to an S3 bucket of your choosing.   Make note of the S3 bucket and folder/key.
+This package is designed to be deployed to AWS Lambda using the AWS Lambda [Serverless Application Model (SAM) framework](https://github.com/awslabs/serverless-application-model).  Once you've pulled down a copy of this repo, upload the prebuilt Lambda package **lib/chartjs-lambda.zip** to an S3 bucket of your choosing.   Make note of the S3 bucket and folder/key.
 
 You will then use the [AWS CLI](https://aws.amazon.com/cli/) to deploy resources and install the Lambda package as required.  A new CORS-enabled S3 bucket will be created in the default region with IAM policies allowing the Lambda ChartJS worker to store image files and generate signed URLs.
 ```bash
