@@ -20,7 +20,7 @@ That said there are always areas for future improvements.  We evaluated other se
 
 ### Dependencies
 
-This package has been built for general compatibility with Chartjs 2.6, Amazon Linux AMI amzn-ami-hvm-2017.03.1.20170812-x86_64-gp2 and NodeJS 10.6.  Native libraries have been prebuilt and packaged per the AWS Lambda requirements listed [here](http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html).
+This package has been built for general compatibility with Chartjs 2.6, Amazon Linux AMI amzn-ami-hvm-2017.03.1.20170812-x86_64-gp2 and NodeJS 6.  Native libraries have been prebuilt and packaged per the AWS Lambda requirements listed [here](http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html).
 
 ### Deploying
 
