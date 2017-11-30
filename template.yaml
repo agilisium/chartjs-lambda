@@ -34,15 +34,8 @@ Resources:
       MemorySize: 512
       Timeout: 10
       Policies:
-        - AWSLambdaBasicExecutionRole            #Managed policy
-
-        - Version: '2012-10-17'                  #Policy Document
-          Statement:
-            - Effect: Allow
-              Action:
-                - s3:GetObject
-                - s3:PutObject
-              Resource: !Sub arn:aws:s3:::${chartjslambdaImageBucket}/*
+        - S3CrudPolicy:
+            BucketName:  !Ref chartjslambdaImageBucket
       Environment:
         Variables:
           S3_BUCKET: !Ref chartjslambdaImageBucket
